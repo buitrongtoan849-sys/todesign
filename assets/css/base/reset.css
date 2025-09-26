@@ -1,0 +1,87 @@
+/* CSS Reset - Based on a simplified version of Eric Meyer's Reset CSS */
+
+/* Import variables.css if needed */
+@import url('./variable.css');
+
+/* Reset margins, paddings, and borders for all elements */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Set core body defaults */
+body {
+  line-height: var(--text-base-line, 1.5);
+  font-size: var(--text-base, 16px);
+  font-family: var(--font-family, 'Roboto', sans-serif);
+  color: var(--text-body, --neutral-300);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Remove list styles on ul, ol elements */
+ol, ul {
+  list-style: none;
+}
+
+/* Reset quotes */
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+  content: none;
+}
+
+/* Reset tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Reset form elements */
+input, select, textarea {
+  font: inherit;
+  margin: 0;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  cursor: pointer;
+  appearance: button; /* Chuẩn CSS hiện đại */
+  -webkit-appearance: button; /* Fallback cho WebKit */
+  -moz-appearance: button; /* Fallback cho Firefox */
+}
+
+/* Remove default focus outline */
+:focus {
+  outline: 2px solid var(--infor-500, #3b82f6);
+  outline-offset: 2px;
+}
+
+/* Additional resets */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--neutral-300, #9ca1aa);
+}

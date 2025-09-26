@@ -1,0 +1,6 @@
+/* Main CSS file - Imports all other CSS files */
+@import url(./base/reset.css);
+@import url(./base/variable.css);
+
+@import url(./components/button.css);
+@import url(./components/input.css);

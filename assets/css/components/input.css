@@ -1,0 +1,111 @@
+/* ============================
+   Input Component (Updated)
+   ============================ */
+
+/* Wrapper */
+.input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--neutral-800);
+  border: 1px solid var(--neutral-600);
+  font-family: var(--font-family);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+  position: relative;
+}
+
+/* Input field */
+.input__field {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--neutral-50);
+  font-size: var(--body);
+  line-height: var(--body-line);
+  font-family: inherit;
+  outline: none; /* Remove default outline */
+}
+
+/* Remove all default focus rings on mouse click */
+.input__field:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Only show focus ring when keyboard navigation */
+.input__field:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Placeholder */
+.input__field::placeholder {
+  color: var(--neutral-500);
+}
+
+/* Icon */
+.input__icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neutral-500);
+  flex-shrink: 0;
+}
+
+/* ----------------------------
+   States
+   ---------------------------- */
+
+/* Hover */
+.input:hover {
+  border-color: var(--yellow-500);
+}
+
+/* Focus-visible (keyboard tab) — show ring */
+.input:has(.input__field:focus-visible) {
+  outline: 8px solid var(--yellow-500-40);
+  outline-offset: 0;
+  border-color: var(--yellow-500);
+}
+
+/* Error state */
+.input.is-error {
+  border-color: var(--error-500);
+}
+
+.input.is-error .input__icon {
+  color: var(--error-500);
+}
+
+/* Error + Tab focus */
+.input.is-error:has(.input__field:focus-visible) {
+  outline: 8px solid var(--error-500-40);
+  outline-offset: 0;
+  border-color: var(--error-500);
+}
+
+/* Disabled */
+.input.is-disabled {
+  background: var(--neutral-700);
+  border-color: var(--neutral-600);
+  cursor: not-allowed;
+}
+
+.input.is-disabled .input__field {
+  color: var(--neutral-400);
+  pointer-events: none;
+}
+
+.input.is-disabled .input__icon {
+  color: var(--neutral-600);
+}
+
+/* For Firefox inner focus */
+.input__field::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}

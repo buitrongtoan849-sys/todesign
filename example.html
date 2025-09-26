@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Button Component Demo</title>
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <style>
+    body {
+      background: #1a1a1a;
+      color: var(--neutral-50);
+      padding: 20px;
+    }
+    h2 {
+      margin: 16px 0 8px;
+    }
+    .demo-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Demo Button Component</h1>
+
+  <h2>Primary</h2>
+  <div class="demo-row">
+    <button class="btn btn--primary">Primary</button>
+    <button class="btn btn--primary btn--icon-left">
+      <span class="btn__icon">
+        <!-- Icon Home -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2L2 9h2v9h5v-6h2v6h5V9h2L10 2z"/></svg>
+      </span>
+      Home
+    </button>
+    <button class="btn btn--primary btn--icon-right">
+      Next
+      <span class="btn__icon">
+        <!-- Icon Arrow -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M7 5l5 5-5 5V5z"/></svg>
+      </span>
+    </button>
+    <button class="btn btn--primary" disabled>Disabled</button>
+  </div>
+
+  <h2>Secondary</h2>
+  <div class="demo-row">
+    <button class="btn btn--secondary">Secondary</button>
+    <button class="btn btn--secondary btn--icon-left">
+      <span class="btn__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>
+      </span>
+      Info
+    </button>
+    <button class="btn btn--secondary" disabled>Disabled</button>
+  </div>
+
+  <h2>Ghost</h2>
+  <div class="demo-row">
+    <button class="btn btn--ghost">Ghost</button>
+    <button class="btn btn--ghost btn--icon-left">
+      <span class="btn__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5-5h10l-5 5z"/></svg>
+      </span>
+      Download
+    </button>
+    <button class="btn btn--ghost" disabled>Disabled</button>
+  </div>
+
+  <h2>Text</h2>
+  <div class="demo-row">
+    <button class="btn btn--text">Text Button</button>
+    <button class="btn btn--text btn--icon-right">
+      More
+      <span class="btn__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="2"/><circle cx="4" cy="10" r="2"/><circle cx="16" cy="10" r="2"/></svg>
+      </span>
+    </button>
+    <button class="btn btn--text" disabled>Disabled</button>
+  </div>
+
+  <h2>Danger</h2>
+  <div class="demo-row">
+    <button class="btn btn--danger">Danger</button>
+    <button class="btn btn--danger btn--icon-left">
+      <span class="btn__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2L2 18h16L10 2zM10 14a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-1-5V7h2v2h-2z"/></svg>
+      </span>
+      Delete
+    </button>
+    <button class="btn btn--danger" disabled>Disabled</button>
+  </div>
+
+  
+  <h2>test</h2>
+  <div class="demo-row">
+    <a href="#" class="btn btn--primary">trang chủ</a>
+    <a href="#" class="btn btn--secondary"><span class="btn__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2L2 18h16L10 2zM10 14a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-1-5V7h2v2h-2z"/></svg>
+      </span> trang chủ ở đây</a>
+  </div>
+
+  <h2>pagein</h2>
+  <div class="demo-row">
+    <a href="#" class="btn btn--ghost btn-pagination">trước đó</a>
+    <a href="#" class="btn btn--primary btn-pagination">1</a>
+    <a href="#" class="btn btn--ghost btn-pagination">2</a>
+    <a href="#" class="btn btn--ghost btn-pagination">2</a>
+    <a href="#" class="btn btn--ghost btn-pagination">tiếp</a>
+   
+  </div>
+
+  <ul class="breadcrumb">
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Danh mục</a></li>
+    <li class="active">Chi tiết</li>
+  </ul>
+
+  <div class="author-time">
+    <span>Tác giả:</span>
+    <span class="author">Todesign</span>
+    <span class="dot"></span>
+    <span>1 giờ trước</span>
+  </div>
+
+  <h2>input</h2>
+   <div class="input">
+    <span class="input__icon">🔍</span>
+    <input class="input__field" type="text" placeholder="Normal input">
+  </div>
+  <div class="input is-error">
+    <span class="input__icon">⚠️</span>
+    <input class="input__field" type="text" placeholder="Error input">
+  </div>
+  <div class="input is-disabled">
+    <span class="input__icon">🔍</span>
+    <input class="input__field" type="text" placeholder="Disabled input" disabled>
+  </div>
+
+
+
+</body>
+</html>

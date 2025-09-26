@@ -1,0 +1,314 @@
+/* button.css (fixed)
+   - padding: 12px
+   - font-weight: 500
+   - icon 16px, gap mặc định 4px (override bằng --btn-icon-gap)
+   - outline chỉ xuất hiện khi keyboard Tab (use :focus-visible)
+   - button chứa: 
+                - Button
+                - Breadcrumb
+                - Author - time
+*/
+
+/* Nếu bạn import variables.css trước thì các biến màu sẽ tồn tại. */
+/* Biến alpha cho outline (40%) */
+:root {
+  --yellow-500-40: #f8d84d66; /* #f8d84d + 66 (40%) */
+  --error-500-40:  #ef444466; /* #ef4444 + 66 (40%) */
+  --btn-icon-gap: 4px; /* mặc định */
+}
+
+/* Base button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-icon-gap, 4px);
+  padding: 12px;
+  font-weight: 500;
+  font-size: var(--button);
+  line-height: var(--button-line);
+  font-family: var(--font-family);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease,
+              box-shadow 120ms ease, transform 80ms ease;
+  border: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Icon inside button */
+.btn__icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  display: inline-block;
+  line-height: 0;
+}
+
+/* icon position helpers */
+.btn--icon-left { flex-direction: row; }
+.btn--icon-right { flex-direction: row-reverse; }
+
+/* Disabled state common */
+.btn:disabled,
+.btn.is-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* --------------------------
+   Primary
+   -------------------------- */
+.btn--primary {
+  background: var(--yellow-500);
+  color: var(--neutral-900);
+  border: none;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--yellow-500);
+  color: var(--neutral-900);
+}
+
+.btn--primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* focus-visible (keyboard only) */
+.btn--primary:focus-visible {
+  outline: 8px solid var(--yellow-500-40);
+  outline-offset: 0;
+  border: 1px solid var(--yellow-50);
+  box-shadow: none;
+}
+
+/* disabled */
+.btn--primary:disabled,
+.btn--primary.is-disabled {
+  background: var(--neutral-500);
+  color: var(--neutral-300);
+  border: none;
+}
+
+/* --------------------------
+   Secondary
+   -------------------------- */
+.btn--secondary {
+  background: var(--infor-500);
+  color: var(--infor-50);
+  border: none;
+}
+
+.btn--secondary:hover:not(:disabled),
+.btn--secondary:active:not(:disabled) {
+  background: var(--infor-500);
+  color: var(--infor-50);
+}
+
+.btn--secondary:focus-visible {
+  outline: 8px solid var(--yellow-500-40);
+  outline-offset: 0;
+  border: 1px solid var(--yellow-50);
+}
+
+/* disabled */
+.btn--secondary:disabled,
+.btn--secondary.is-disabled {
+  background: var(--neutral-500);
+  color: var(--neutral-300);
+}
+
+/* --------------------------
+   Ghost
+   -------------------------- */
+.btn--ghost {
+  background: transparent;
+  color: var(--neutral-50);
+  border: 1px solid var(--neutral-700);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: transparent;
+  color: var(--neutral-50);
+  border: 1px solid var(--neutral-700);
+}
+
+.btn--ghost:active:not(:disabled) {
+  background: transparent;
+  color: var(--neutral-50);
+  border: 1px solid var(--yellow-700);
+}
+
+.btn--ghost:focus-visible {
+  background: transparent;
+  color: var(--neutral-50);
+  border: 1px solid var(--yellow-500);
+  outline: 8px solid var(--yellow-500-40);
+  outline-offset: 0;
+}
+
+/* ghost disabled */
+.btn--ghost:disabled,
+.btn--ghost.is-disabled {
+  background: var(--neutral-800);
+  color: var(--neutral-600);
+  border: 1px solid var(--neutral-600);
+}
+
+/* --------------------------
+   Text
+   -------------------------- */
+.btn--text {
+  background: transparent;
+  color: var(--neutral-200);
+  border: none;
+  padding: 12px;
+}
+
+.btn--text:hover:not(:disabled),
+.btn--text:active:not(:disabled) {
+  background: var(--neutral-700);
+  color: var(--neutral-200);
+}
+
+.btn--text:focus-visible {
+  background: transparent;
+  color: var(--neutral-200);
+  border: 1px solid var(--yellow-500);
+  outline: 8px solid var(--yellow-500-40);
+  outline-offset: 0;
+}
+
+/* text disabled */
+.btn--text:disabled,
+.btn--text.is-disabled {
+  background: var(--neutral-500);
+  color: var(--neutral-300);
+}
+
+/* --------------------------
+   Danger
+   -------------------------- */
+.btn--danger {
+  background: var(--error-500);
+  color: var(--error-50);
+  border: none;
+}
+
+.btn--danger:hover:not(:disabled),
+.btn--danger:active:not(:disabled) {
+  background: var(--error-500);
+  color: var(--error-50);
+}
+
+.btn--danger:focus-visible {
+  outline: 8px solid var(--error-500-40);
+  outline-offset: 0;
+  border: 1px solid var(--error-300);
+}
+
+/* danger disabled */
+.btn--danger:disabled,
+.btn--danger.is-disabled {
+  background: var(--error-300);
+  color: var(--error-50);
+}
+
+/* --------------------------
+   Accessibility & touch
+   -------------------------- */
+
+/* Remove default outline only when NOT focus-visible (so keyboard Tab keeps outline) */
+.btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* fullwidth variant */
+.btn--block { display: flex; width: 100%; }
+
+/* size variants */
+.btn--sm { padding: 8px 10px; font-size: 13px; }
+.btn--lg { padding: 14px 18px; font-size: 16px; }
+
+/* loading */
+.btn.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* --------------------------
+   Pagination
+   -------------------------- */
+
+.btn-pagination {
+  padding: 4px 12px; /* chỉ override padding */
+}
+
+
+/* --------------------------
+   Breadcrumb container
+   -------------------------- */
+
+/* Breadcrumb container */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Link trong breadcrumb */
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--neutral-100); /* normal */
+  transition: color 0.12s ease;
+}
+
+/* Active breadcrumb (trang hiện tại) */
+.breadcrumb .active {
+  color: var(--neutral-500); /* active */
+  pointer-events: none; /* disable click */
+}
+
+/* Divider (dấu / hoặc >) */
+.breadcrumb li::after {
+  content: ">";
+  color: var(--neutral-500);
+  margin: 0 4px;
+}
+
+/* Ẩn dấu '>' sau item cuối cùng */
+.breadcrumb li:last-child::after {
+  content: "";
+}
+
+/* --------------------------
+   author-time
+   -------------------------- */
+
+.author-time {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* khoảng cách giữa tác giả – dấu chấm – giờ */
+  color: var(--neutral-300); /* #9ca1aa */
+  font-size: var(--small); /* 13px */
+}
+
+.author-time .author {
+  font-weight: 600; /* nếu muốn chữ tác giả đậm */
+}
+
+.author-time .dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: currentColor; /* cùng màu chữ */
+}

@@ -1,0 +1,112 @@
+/* Import Roboto Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Color Variables */
+:root {
+  /* Success Colors */
+  --success-50: #e9f9ef;
+  --success-100: #baedcd;
+  --success-200: #98e4b5;
+  --success-300: #6bd893;
+  --success-400: #4ed17e;
+  --success-500: #22c55e;
+  --success-600: #1fb35b;
+  --success-700: #188c43;
+  --success-800: #136c34;
+  --success-900: #0e5327;
+
+  /* Yellow Colors */
+  --yellow-50: #fefbed;
+  --yellow-100: #fdf3c8;
+  --yellow-200: #fcecb6;
+  --yellow-300: #fae588;
+  --yellow-400: #f9e071;
+  --yellow-500: #f8d84d;
+  --yellow-600: #e2c546;
+  --yellow-700: #b09937;
+  --yellow-800: #88772a;
+  --yellow-900: #685b20;
+
+  /* Neutral Colors */
+  --neutral-50: #f0f1f2;
+  --neutral-100: #d1d3d8;
+  --neutral-200: #b6bec5;
+  --neutral-300: #9ca1aa;
+  --neutral-400: #868989;
+  --neutral-500: #6b7280;
+  --neutral-600: #616874;
+  --neutral-700: #4c5158;
+  --neutral-800: #3b3f46;
+  --neutral-900: #2d3036;
+
+  /* Error Colors */
+  --error-50: #ffdeec;
+  --error-100: #ffc5c5;
+  --error-200: #f98a89;
+  --error-300: #f14882;
+  --error-400: #f26969;
+  --error-500: #ef4444;
+  --error-600: #d93e3e;
+  --error-700: #aa3030;
+  --error-800: #832525;
+  --error-900: #641d1d;
+
+  /* Warning Colors */
+  --warning-50: #fef5e7;
+  --warning-100: #fce1b3;
+  --warning-200: #fad28f;
+  --warning-300: #f8be5c;
+  --warning-400: #f7b134;
+  --warning-500: #f59e0b;
+  --warning-600: #f4900a;
+  --warning-700: #ae7008;
+  --warning-800: #875706;
+  --warning-900: #674205;
+
+  /* Infor Colors */
+  --infor-50: #ebf3fe;
+  --infor-100: #c2d8fc;
+  --infor-200: #a5cbfb;
+  --infor-300: #7cabf9;
+  --infor-400: #629bf8;
+  --infor-500: #3b82f6;
+  --infor-600: #3676e0;
+  --infor-700: #2a5caf;
+  --infor-800: #204887;
+  --infor-900: #193767;
+
+  /* Font Settings */
+  --font-family: 'Roboto', sans-serif;
+
+  /* Font Sizes */
+  --h1: 32px;
+  --h2: 22px;
+  --h3: 18px;
+  --subtitle: 15px;
+  --text-base: 16px;
+  --label: 14px;
+  --small: 13px;
+  --button: 14px;
+  --caption: 12px;
+
+  /* Line Heights */
+  --h1-line: 40px;
+  --h2-line: 32px;
+  --h3-line: 28px;
+  --subtitle-line: 24px;
+  --text-base-line: 24px;
+  --label-line: 20px;
+  --small-line: 18px;
+  --button-line: 20px;
+  --caption-line: 20px;
+
+  /* Text Colors */
+  --text-title: var(--neutral-50);
+  --text-body: var(--neutral-300);
+  --muted: var(--neutral-500);
+}
+
+/* Applying Font Family Globally */
+body {
+  font-family: var(--font-family);
+}
