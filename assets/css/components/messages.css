@@ -1,0 +1,57 @@
+/* ===========================
+   Messages Component
+   =========================== */
+.message {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* khoảng cách icon và chữ */
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: var(--small);
+  line-height: var(--small-line);
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Icon */
+.message__icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message__icon img,
+.message__icon svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  object-fit: contain;
+}
+
+/* ---------------------------
+   Success
+   --------------------------- */
+.message--success {
+  background-color: var(--success-500);
+  color: var(--success-900);
+}
+
+/* ---------------------------
+   Warning
+   --------------------------- */
+.message--warning {
+  background-color: var(--warning-500);
+  color: var(--warning-900);
+}
+
+/* ---------------------------
+   Error / Danger
+   --------------------------- */
+.message--error {
+  background-color: var(--error-500);
+  color: var(--error-900);
+}

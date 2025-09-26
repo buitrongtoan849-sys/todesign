@@ -1,0 +1,86 @@
+/* avatar.css */
+
+/* Container avatar 44x44, vòng tròn, nền --neutral-200 */
+.avatar {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 9999px;               /* circle */
+  background: var(--neutral-200);      /* yêu cầu */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: var(--font-family);
+  cursor: default;
+}
+
+/* Initials bên trong */
+.avatar__initials {
+  font-size: 14px;        /* điều chỉnh nếu cần */
+  line-height: 1;
+  font-weight: 500;
+  color: var(--neutral-900);   /* yêu cầu */
+  user-select: none;
+}
+
+/* Nếu muốn hiển thị ảnh thay vì chữ */
+.avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Kiểu kèm tên bên cạnh (ví dụ) */
+.user__name {
+  font-size: var(--text-base);
+  color: var(--neutral-900);
+  font-weight: 700;
+  line-height: var(--label-line);
+}
+
+.user__meta {
+  font-size: var(--caption);
+  color: var(--muted);
+  line-height: var(--caption-line);
+}
+
+/* Hỗ trợ khi có ảnh: thêm class .has-img lên .avatar để ẩn initials */
+.avatar.has-img .avatar__initials { display: none; }
+.avatar.has-img .avatar__img { display: block; }
+
+/* 
+    Like & Answer
+*/
+
+
+/* comment-actions.css */
+.comment-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--neutral-100);
+  color: var(--neutral-600);
+  font-size: var(--small);
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+  font-family: var(--font-family);
+}
+
+/* Khi hover đổi nhẹ màu text */
+.comment-action:hover {
+  color: var(--neutral-700);
+}
+
+/* Khi click (active) đổi text thành infor-500 */
+.comment-action:active,
+.comment-action.active {
+  color: var(--infor-500);
+}

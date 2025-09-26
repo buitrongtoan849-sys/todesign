@@ -103,7 +103,7 @@
 
   <h2>pagein</h2>
   <div class="demo-row">
-    <a href="#" class="btn btn--ghost btn-pagination">trước đó</a>
+    <a href="#" class="btn btn--ghost btn-pagination is-disabled">trước</a>
     <a href="#" class="btn btn--primary btn-pagination">1</a>
     <a href="#" class="btn btn--ghost btn-pagination">2</a>
     <a href="#" class="btn btn--ghost btn-pagination">2</a>
@@ -155,6 +155,18 @@
     </div>
   </div>
 
+  <div class="input-wrapper">
+  <label class="input-label" for="message">Message</label>
+  <div class="input">
+    <textarea
+      id="message"
+      placeholder="Enter your message..."
+      rows="4"
+    ></textarea>
+  </div>
+  <span class="input-caption">Please enter at least 10 characters.</span>
+</div>
+
   <h2>Link</h2>
   <!-- Neutral link có icon trái -->
   <a href="#" class="link neutral icon-left">
@@ -175,5 +187,66 @@
   <!-- Yellow link không icon -->
   <a href="#" class="link yellow">Trợ giúp</a>
 
+  <h2>Message</h2>
+  <!-- Success -->
+<div class="message message--success">
+  <span class="message__icon">
+    <img src="./assets/images/icons/CheckCircle.svg" alt="success">
+  </span>
+  <span>Thao tác thành công!</span>
+</div>
+<br>
+<!-- Warning -->
+<div class="message message--warning">
+  <span class="message__icon">
+    <img src="./assets/images/icons/Warning.svg" alt="warning">
+  </span>
+  <span>Vui lòng kiểm tra lại thông tin!</span>
+</div>
+<br>
+<!-- Error -->
+<div class="message message--error">
+  <span class="message__icon">
+    <img src="./assets/images/icons/SmileyXEyes.svg" alt="error">
+  </span>
+  <span>Có lỗi xảy ra, vui lòng thử lại!</span>
+</div>
+
+  <h2>Avatar</h2>
+<!-- Ví dụ sử dụng -->
+<div class="row" style="gap:12px; align-items:center;">
+  <!-- Avatar với initials (TL) -->
+  <div class="avatar" role="img" aria-label="Avatar TL">
+    <span class="avatar__initials">TL</span>
+  </div>
+
+  <!-- Tên hiển thị bên cạnh avatar -->
+  <div class="user">
+    <div class="user__name">TL</div>
+    <div class="user__meta">Member</div>
+  </div>
+</div>
+
+<!-- Avatar dùng ảnh: thêm class has-img -->
+<div class="avatar has-img" role="img" aria-label="Avatar TL">
+  <img class="avatar__img" src="./assets/images/Screenshot_1.png" alt="Avatar TL">
+  <span class="avatar__initials">TL</span>
+</div>
+
+  <h2>like</h2>
+
+<div style="display: flex; gap: 8px;">
+  <div class="comment-action like-btn">
+    Thích <span class="like-count">0</span>
+  </div>
+  <div class="comment-action reply-btn">
+    Trả lời
+  </div>
+</div>
+
+<script src="./main.js"></script>
+
+
 </body>
 </html>
+<script type="module" src="./assets/js/main.js"></script>

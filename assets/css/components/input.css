@@ -92,3 +92,23 @@
   object-fit: contain;
   display: block;
 }
+
+/* ===========================
+   .input textarea {
+   =========================== */
+
+.input textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--neutral-50);
+  font-size: var(--text-base);
+  line-height: var(--text-base-line);
+  resize: none; /* Ngăn resize textarea */
+  min-height: 80px; /* Đặt chiều cao tối thiểu */
+}
+
+.input textarea::placeholder {
+  color: var(--neutral-500);
+}
