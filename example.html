@@ -124,21 +124,56 @@
     <span>1 giờ trước</span>
   </div>
 
-  <h2>input</h2>
-   <div class="input">
-    <span class="input__icon">🔍</span>
-    <input class="input__field" type="text" placeholder="Normal input">
-  </div>
-  <div class="input is-error">
-    <span class="input__icon">⚠️</span>
-    <input class="input__field" type="text" placeholder="Error input">
-  </div>
-  <div class="input is-disabled">
-    <span class="input__icon">🔍</span>
-    <input class="input__field" type="text" placeholder="Disabled input" disabled>
+ <h2>Input States Demo</h2>
+<!-- Input có Label + Caption Error -->
+  <div class="input-wrapper">
+    <label class="input-label" for="email">Email</label>
+    <div class="input error">
+      <input type="email" id="email" placeholder="Email đăng nhập">
+    </div>
+    <div class="input-caption">Email không hợp lệ, vui lòng nhập lại.</div>
   </div>
 
+  <br>
 
+  <!-- Input chỉ có Label (không Caption) -->
+  <div class="input-wrapper">
+    <label class="input-label" for="username">Username</label>
+    <div class="input">
+      <input type="text" id="username" placeholder="Tên đăng nhập">
+    </div>
+  </div>
+
+  <br>
+
+  <!-- Input không Label, không Caption -->
+  <div class="input-wrapper">
+    <div class="input">
+      <span class="icon"><img src="./assets/images/icons/ArrowSquareUpLeft.svg" alt=""></span>
+      <input type="text" placeholder="Chỉ input thôi">
+      <span class="icon"><img src="./assets/images/icons/ArrowSquareUpLeft.svg" alt=""></span>
+    </div>
+  </div>
+
+  <h2>Link</h2>
+  <!-- Neutral link có icon trái -->
+  <a href="#" class="link neutral icon-left">
+    <span class="icon"><img src="./assets/images/icons/ArrowUDownLeft.svg" alt=""></i></span>
+    Quay lại
+  </a>
+
+  <br><br>
+
+  <!-- Infor link có icon phải -->
+  <a href="#" class="link infor icon-right">
+    Xem chi tiết
+    <span class="icon"><img src="./assets/images/icons/ArrowSquareUpLeft.svg" alt=""></i></span>
+  </a>
+
+  <br><br>
+
+  <!-- Yellow link không icon -->
+  <a href="#" class="link yellow">Trợ giúp</a>
 
 </body>
 </html>

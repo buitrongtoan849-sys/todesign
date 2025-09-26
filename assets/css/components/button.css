@@ -7,6 +7,7 @@
                 - Button
                 - Breadcrumb
                 - Author - time
+                - Link
 */
 
 /* Nếu bạn import variables.css trước thì các biến màu sẽ tồn tại. */
@@ -311,4 +312,59 @@
   height: 4px;
   border-radius: 50%;
   background-color: currentColor; /* cùng màu chữ */
+}
+
+
+
+/* ===========================
+   Link Component
+   =========================== */
+.link {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--small);
+  line-height: var(--small-line);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+/* Hover state */
+.link:hover {
+  opacity: 0.8;
+}
+
+/* ===========================
+   Colors
+   =========================== */
+.link.neutral {
+  color: var(--neutral-300);
+}
+
+.link.infor {
+  color: var(--infor-500);
+}
+
+.link.yellow {
+  color: var(--yellow-500);
+}
+
+/* ===========================
+   Icon Position
+   =========================== */
+.link .icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px; /* để vừa với chữ nhỏ */
+  line-height: 1;
+}
+
+/* Icon trái (trước chữ) */
+.link.icon-left .icon {
+  margin-right: 4px;
+}
+
+/* Icon phải (sau chữ) */
+.link.icon-right .icon {
+  margin-left: 4px;
 }

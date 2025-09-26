@@ -1,111 +1,94 @@
-/* ============================
-   Input Component (Updated)
-   ============================ */
+/* ===========================
+   Input Wrapper
+   =========================== */
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* khoảng cách label và input */
+  width: 100%;
+}
 
-/* Wrapper */
+/* Label */
+.input-label {
+  font-size: var(--label);
+  line-height: var(--label-line);
+  font-weight: 500;
+  color: var(--neutral-300);
+}
+
+/* ===========================
+   Input Box
+   =========================== */
 .input {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px;
+  padding: 8px 12px;
   border-radius: 8px;
-  background: var(--neutral-800);
+  font-size: var(--text-base);
+  line-height: var(--text-base-line);
+  background-color: var(--neutral-800);
   border: 1px solid var(--neutral-600);
-  font-family: var(--font-family);
-  transition: border-color 120ms ease, box-shadow 120ms ease;
-  position: relative;
+  color: var(--neutral-500);
+  transition: all 0.2s ease;
 }
 
-/* Input field */
-.input__field {
+.input input {
   flex: 1;
   background: transparent;
   border: none;
+  outline: none;
   color: var(--neutral-50);
-  font-size: var(--body);
-  line-height: var(--body-line);
-  font-family: inherit;
-  outline: none; /* Remove default outline */
+  font-size: var(--text-base);
 }
 
-/* Remove all default focus rings on mouse click */
-.input__field:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-/* Only show focus ring when keyboard navigation */
-.input__field:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-/* Placeholder */
-.input__field::placeholder {
+.input input::placeholder {
   color: var(--neutral-500);
 }
 
-/* Icon */
-.input__icon {
-  width: 16px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--neutral-500);
-  flex-shrink: 0;
-}
-
-/* ----------------------------
+/* ===========================
    States
-   ---------------------------- */
-
-/* Hover */
-.input:hover {
+   =========================== */
+.input:active {
   border-color: var(--yellow-500);
 }
 
-/* Focus-visible (keyboard tab) — show ring */
-.input:has(.input__field:focus-visible) {
-  outline: 8px solid var(--yellow-500-40);
-  outline-offset: 0;
+.input:focus-within {
   border-color: var(--yellow-500);
+  color: var(--neutral-50);
 }
 
-/* Error state */
-.input.is-error {
+/* Error */
+.input.error {
   border-color: var(--error-500);
 }
 
-.input.is-error .input__icon {
+/* ===========================
+   Caption (optional)
+   =========================== */
+.input-caption {
+  /* margin-top: 0; */
+  font-size: var(--small);
+  line-height: var(--small-line);
   color: var(--error-500);
 }
 
-/* Error + Tab focus */
-.input.is-error:has(.input__field:focus-visible) {
-  outline: 8px solid var(--error-500-40);
-  outline-offset: 0;
-  border-color: var(--error-500);
+/* ===========================
+   Icon (SVG hoặc img)
+   =========================== */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--neutral-500);
 }
 
-/* Disabled */
-.input.is-disabled {
-  background: var(--neutral-700);
-  border-color: var(--neutral-600);
-  cursor: not-allowed;
-}
-
-.input.is-disabled .input__field {
-  color: var(--neutral-400);
-  pointer-events: none;
-}
-
-.input.is-disabled .input__icon {
-  color: var(--neutral-600);
-}
-
-/* For Firefox inner focus */
-.input__field::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+.icon svg,
+.icon img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
 }
