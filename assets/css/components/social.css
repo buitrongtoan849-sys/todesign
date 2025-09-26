@@ -21,8 +21,9 @@
 .avatar__initials {
   font-size: 14px;        /* điều chỉnh nếu cần */
   line-height: 1;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--neutral-900);   /* yêu cầu */
+  font-size: var(--text-base);
   user-select: none;
 }
 
@@ -72,6 +73,10 @@
   user-select: none;
   transition: color 0.2s ease;
   font-family: var(--font-family);
+}
+
+.like-count{
+    margin-left: 4px;
 }
 
 /* Khi hover đổi nhẹ màu text */
