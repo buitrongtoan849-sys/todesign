@@ -18,6 +18,11 @@ html, body {
     margin: 0 auto; /* chỉ căn nội dung, không flex */
 }
 
+.site-main-64{
+    flex: 1; /* chính main chiếm khoảng trống */
+    padding: 64px 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .site-main {

@@ -1,0 +1,7 @@
+.h2-title, .h3-title{
+    color: var(--neutral-50);
+}
+
+.p-body{
+    color: var(--neutral-300);
+}

@@ -1,0 +1,36 @@
+.about-inner{
+  background-color: var(--neutral-900);
+  border: 1px solid var(--neutral-600);
+  max-width: 960px;
+  padding: 48px;
+  border-radius: 16px;
+  margin: 0 auto; /* căn giữa khung khi ở desktop */
+}
+
+.about-section {
+  border-bottom: 1px solid var(--neutral-600);
+  padding-bottom: 32px;   /* tạo chiều cao cho block */
+  margin-bottom: 32px;    /* tạo khoảng cách với block kế tiếp */
+}
+
+/* Bỏ border và khoảng cách ở section cuối cùng */
+.about-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.about-section p{
+  margin-bottom: 10px;
+}
+
+.about-label{
+  color: var(--neutral-100);
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  .about-inner {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <h1>
+          <!-- Logo desktop -->
+          <a href="index.html"><img class="logo-desktop" src="./assets/images/logo/Full Logo.svg" alt="logo-desktop"></a>
+          <!-- Logo mobile -->
+          <a href="index.html"><img class="logo-mobile" src="./assets/images/logo/Icon logo.svg" alt="logo-mobile"></a>
+        </h1>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Main nav -->
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/index.html" class="btn btn--text">Trang chủ</a></li>
+          <li><a href="/about.html" class="btn btn--text active">Giới thiệu</a></li>
+          <li><a href="/share.html" class="btn btn--text">Chia sẻ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="hero-banner" style="background-color: var(--neutral-900);">
+    <div class="container hero-inner">
+      <h1 class="hero-title">Giới thiệu về Todesign!</h1>
+      <p class="hero-desc">
+        Chúng ta vẫn biết rằng, 
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="site-main-64">
+    <div class="container about-inner">
+      <!-- Kinh nghiệm -->
+      <section class="about-section mb-64">
+        <h2 class="h2-title mb-24">Kinh nghiệm:</h2>
+        <p><b class="about-label">Web UX/UI Designer (2019 – Hiện tại):</b> Nghiên cứu nhu cầu người dùng và thiết kế giao diện website...</p>
+        <p><b class="about-label">Graphic Designer (2015 – 2018):</b> Thiết kế hình ảnh quảng cáo, landing page...</p>
+        <p><b class="about-label">Web Graphic Designer (2013 – 2015):</b> Tìm hiểu yêu cầu khách hàng và thiết kế giao diện website...</p>
+      </section>
+
+      <!-- Kỹ năng -->
+      <section class="about-section mb-64">
+        <h2 class="h2-title mb-24">Kỹ năng:</h2>
+        <p><b class="about-label">Thiết kế UI/UX:</b> Tạo giao diện thân thiện, dễ sử dụng.</p>
+        <p><b class="about-label">Phân tích & nghiên cứu người dùng:</b> Đảm bảo sản phẩm phù hợp với nhu cầu.</p>
+        <p><b class="about-label">Phần mềm đồ họa:</b> Thành thạo Figma, Photoshop, Illustrator...</p>
+      </section>
+
+      <!-- Liên hệ -->
+      <section class="about-section">
+        <h2 class="h2-title mb-24">Liên hệ:</h2>
+        <p>Bạn có thể để lại lời nhắn cho mình tại đây:</p>
+
+        <form class="comment__reply" action="/submit-form" method="POST">
+          <div class="input-wrapper">
+            <!-- Họ và tên -->
+            <label class="input-label" for="name">Họ và tên</label>
+            <div class="input gap-input">
+              <input type="text" id="name" name="name" placeholder="Họ tên của bạn" required>
+            </div>
+
+            <!-- Email -->
+            <label class="input-label" for="email">Email</label>
+            <div class="input gap-input">
+              <input type="email" id="email" name="email" placeholder="Email của bạn" required>
+            </div>
+
+            <!-- Nội dung -->
+            <label class="input-label" for="message">Để lại tin nhắn</label>
+            <div class="input gap-input">
+              <textarea id="message" name="message" placeholder="Bạn muốn nói gì với mình?" rows="4" required></textarea>
+            </div>
+
+            <!-- Nút -->
+            <div class="comment__btn">
+              <button type="submit" class="btn btn--primary">Gửi</button>
+            </div>
+          </div>
+        </form>
+        <div class="message message--success">
+            <span class="message__icon">
+              <img src="./assets/images/icons/CheckCircle.svg" alt="success">
+            </span>
+            <span>Gửi bình luận thành công, chờ duyệt!</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-logo"><img src="./assets/images/logo/Icon logo.svg" alt="Logo-footer"> <p class="copyright">© 2025 Todesign - <span><a href="#">by Todesign</a></span></p></div>
+      <div class="social-links">
+        <a href="#"><img src="./assets/images/footer/be.svg" alt="behance"></a>
+        <a href="#"><img src="./assets/images/footer/in.svg" alt="behance"></a>
+        <a href="#"><img src="./assets/images/footer/intar.svg" alt="behance"></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="./assets/js/hamburger.js"></script>
+  
+</body>
+</html>
