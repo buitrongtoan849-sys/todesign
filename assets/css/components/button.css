@@ -169,6 +169,12 @@
   padding: 12px;
 }
 
+/* giữ trạng thái active bằng class */
+.btn--text.active {
+  background: var(--neutral-700);
+  color: var(--neutral-200);
+}
+
 .btn--text:hover:not(:disabled),
 .btn--text:active:not(:disabled) {
   background: var(--neutral-700);

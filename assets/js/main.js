@@ -1,2 +1,4 @@
-import './social.js';
+import './hamburger-menu.js';
+import './comment-action.js';
+
 

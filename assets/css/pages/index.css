@@ -1,0 +1,55 @@
+
+/* ========================
+   Card grid
+======================== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+}
+
+.card-grid .card {
+  flex: 1 1 calc(25% - 24px);
+  box-sizing: border-box;
+}
+
+.card-grid .card img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ========================
+   Responsive mobile
+======================== */
+@media (max-width: 768px) {
+
+  /* card mobile */
+  .card-grid {
+    gap: 32px;
+  }
+
+  .card-grid .card {
+    flex: 1 1 100%;
+  }
+
+  .card-grid .card img {
+    width: 100%;
+    max-width: 100%;
+  }
+}

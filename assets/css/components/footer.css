@@ -1,0 +1,59 @@
+/* Footer mặc định */
+.site-footer{
+    background-color: var(--neutral-900);
+    border-top-left-radius: 16px;   
+    border-top-right-radius: 16px;  
+}
+
+.footer-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+    gap: 24px; /* phòng khi co nhỏ */
+}
+
+.footer-logo{
+    display: flex;
+    gap: 6px;
+    justify-items: center;
+    align-items: center;
+}
+
+.footer-logo img{
+    height: 36px;
+}
+
+.copyright{
+    font-size: var(--caption);
+}
+
+.social-links{
+    display: flex;
+    gap: 24px;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media screen and (max-width: 768px) {
+    .footer-inner{
+        flex-direction: column;
+        align-items: center; /* căn giữa nội dung */
+    }
+
+    .social-links{
+        order: 1; /* lên trên */
+        margin-bottom: 16px; /* khoảng cách với phần dưới */
+    }
+
+    .footer-logo,
+    .copyright{
+        order: 2; /* xuống dưới */
+        text-align: center; /* căn giữa */
+        margin-top: 8px;
+    }
+
+    .footer-logo{
+        flex-direction: column; /* logo + text xếp dọc nếu muốn */
+        gap: 8px;
+    }
+}

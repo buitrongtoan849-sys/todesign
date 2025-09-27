@@ -1,0 +1,42 @@
+/* Hero banner desktop */
+.hero-banner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 96px 0; /* trên dưới desktop */
+}
+
+.hero-inner {
+  text-align: left;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-title {
+  color: var(--neutral-50);
+  margin-bottom: 24px;
+  font-size: var(--h1);
+  line-height: var(--h1-line);
+  max-width: 50%; /* desktop */
+}
+
+.hero-desc {
+  color: var(--neutral-300);
+  max-width: 50%; /* desktop */
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .hero-banner {
+    padding: 64px 0; /* trên dưới mobile */
+  }
+
+  .hero-title{
+    max-width: 100%; /* mobile full width text */
+  }
+
+  .hero-desc {
+    max-width: 100%; /* mobile full width text */
+  }
+}
