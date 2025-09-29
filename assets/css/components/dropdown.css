@@ -1,0 +1,84 @@
+/* cơ bản */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 240px;               /* hoặc width: 100% nếu bạn muốn nó tự theo container */
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+/* toggle */
+.dropdown__toggle {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--neutral-800);
+  border: 1px solid var(--neutral-600);
+  border-radius: 8px;
+  color: var(--neutral-50);
+  font-weight: 500;
+  font-size: var(--text-base);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* menu wrapper: dùng max-height để animate mở/đóng mượt */
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* animation-friendly */
+  max-height: 0;                /* đóng */
+  overflow: hidden;             /* ẩn phần tràn khi đóng */
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: max-height 260ms ease, opacity 180ms ease, transform 200ms ease;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-600);
+  background: var(--neutral-800);
+  z-index: 40;
+}
+
+/* phần bên trong thực sự scroll được */
+.dropdown__menu-inner {
+  max-height: 320px;            /* max visible height khi mở (tùy chỉnh) */
+  overflow: auto;               /* bật scroll khi nhiều item */
+  box-sizing: border-box;
+}
+
+/* class mở */
+.dropdown.open .dropdown__menu {
+  max-height: 400px;   /* đủ lớn để hiển thị dropdown-inner (thực tế .menu-inner giới hạn scroll) */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* khi mở thì menu-inner vẫn scrollable */
+.dropdown.open .dropdown__menu-inner {
+  /* không cần thay đổi, overflow: auto vẫn hoạt động */
+}
+
+/* item */
+.dropdown__item {
+  display: block;
+  padding: 10px 12px;
+  color: var(--neutral-50);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown__item:hover {
+  background: var(--neutral-700);
+}
+
+/* xoay icon khi open */
+.dropdown.open .dropdown__icon {
+  transform: rotate(180deg);
+  transition: transform 180ms ease;
+}

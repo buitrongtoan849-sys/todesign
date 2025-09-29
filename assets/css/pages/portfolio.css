@@ -1,0 +1,72 @@
+/* ===========================
+   Portfolio layout chỉnh ngang
+=========================== */
+
+.portfolio-inner {
+  max-width: 996px; /* khung tổng */
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Breadcrumb bằng với card */
+.portfolio-inner .breadcrumb {
+  width: 792px; /* bằng với post-column */
+  max-width: 100%;
+  margin: 0 auto 24px auto; /* căn giữa và cách dưới */
+  padding: 0; /* reset padding */
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+
+/* trending-posts và search-form bằng với card */
+.portfolio-inner .trending-posts,
+.portfolio-inner .search-form {
+  width: 792px; /* cùng width post-column */
+  max-width: 100%;
+  margin: 0 auto 24px auto; /* căn giữa + khoảng cách */
+  box-sizing: border-box;
+}
+
+/* Cột bài (cards) */
+.portfolio-inner .post-column {
+  width: 792px; /* cùng width */
+  max-width: 100%;
+  margin: 0 auto; /* căn giữa */
+  box-sizing: border-box;
+}
+
+/* Post list gap */
+.portfolio-inner .post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Pagination căn giữa */
+.portfolio-inner .pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .portfolio-inner {
+    padding: 0 16px;
+  }
+
+  .portfolio-inner .breadcrumb,
+  .portfolio-inner .trending-posts,
+  .portfolio-inner .search-form,
+  .portfolio-inner .post-column {
+    width: 100%;
+    margin: 0 auto 48px auto;
+  }
+
+  .portfolio-inner .post-list {
+    gap: 32px;
+  }
+}

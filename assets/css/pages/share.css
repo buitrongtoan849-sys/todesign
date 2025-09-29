@@ -1,0 +1,111 @@
+/* ---------- Layout wrapper (KHÔNG CHẠM VÀO .post-card) ---------- */
+.share-inner {
+  max-width: 996px;       /* 180 + 24 + 792 = 996 */
+  margin: 0 auto;
+  /* padding: 0 20px; */
+  box-sizing: border-box;
+}
+
+/* trending -> search = 24px (desktop) */
+.trending-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;    /* EXACT 24px */
+}
+
+/* search -> layout = 24px (desktop) */
+.search-form {
+  margin-bottom: 24px;    /* EXACT 24px */
+}
+
+/* main grid: category (180) + posts (792) with 24px gap */
+.share-layout {
+  display: grid;
+  grid-template-columns: 180px 792px;
+  gap: 24px;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---------- Category (KHÔNG CHẠM CARD) ---------- */
+.category-menu {
+  width: 180px;           /* fixed width */
+  height: 200px;          /* fixed height for 3-4 items */
+  padding: 18px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: var(--neutral-800);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;       /* không dài ra */
+}
+
+.category-menu .btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+}
+
+/* ---------- Post column (KHÔNG CHẠM CARD) ---------- */
+.post-column {
+  width: 100%;
+  max-width: 792px;       /* card area width */
+  box-sizing: border-box;
+}
+
+/* spacing giữa các card: dùng gap trên phần chứa, KHÔNG chỉnh card trực tiếp */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;              /* desktop gap between cards */
+}
+
+/* Pagination nằm trong cột bài và canh giữa cột bài */
+.post-column .demo-row,
+.post-column .pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 768px) {
+
+  /* .share-inner {
+    padding: 0 16px;
+    max-width: 100%;
+  } */
+
+  /* mobile: trending và search spacing -> 48px */
+  .trending-posts {
+    margin-bottom: 48px;
+  }
+  .search-form {
+    margin-bottom: 48px;
+  }
+
+  /* stack: single column, gap between blocks = 48px */
+  .share-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;           /* block gap as requested */
+  }
+
+  /* order: posts lên trước, category xuống dưới */
+  .post-column { grid-row: 1; }
+  .category-menu { 
+    grid-row: 2;
+    width: 100%;
+    height: auto;       /* allow content wrap on mobile */
+    padding: 16px;
+  }
+
+  /* card gap on mobile = 32px (vẫn không đụng vào card) */
+  .post-list {
+    gap: 32px;
+  }
+}

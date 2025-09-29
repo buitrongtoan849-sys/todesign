@@ -1,6 +1,6 @@
 .post-card {
   background-color: var(--neutral-900);
-  padding: 32px;
+  padding: 24px;
 }
 
 .post-card__inner {
@@ -25,11 +25,13 @@
 .post-card__title {
   margin-bottom: 12px;
   text-align: center;
+  color: var(--neutral-50);
 }
 
 .post-card__excerpt {
   margin-bottom: 16px;
   text-align: center;
+  color: var(--neutral-300);
 }
 
 .post-card__image-link {
@@ -46,6 +48,10 @@
 
 /* Mobile: ảnh lên trên */
 @media (max-width: 768px) {
+  .post-card {
+    background-color: var(--neutral-900);
+    padding: 16px;
+  }
   .post-card__inner {
     flex-direction: column;
   }

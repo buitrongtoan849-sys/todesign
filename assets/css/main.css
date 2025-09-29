@@ -16,8 +16,11 @@
 @import url(./components/Trending-Posts.css);
 @import url(./components/post-card.css);
 @import url(./components/category.css);
+@import url(./components/dropdown.css);
 
 /* pages */
 @import url(./pages/layout.css);
 @import url(./pages/index.css);
 @import url(./pages/about.css);
+@import url(./pages/share.css);
+@import url(./pages/portfolio.css);
