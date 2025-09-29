@@ -21,11 +21,12 @@
 }
 
 .about-section p{
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 .about-label{
   color: var(--neutral-100);
+  font-weight: 500;
 }
 
 /* Responsive cho mobile */

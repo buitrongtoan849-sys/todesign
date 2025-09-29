@@ -1,0 +1,21 @@
+.category-menu {
+  background-color: var(--neutral-900); /* nền ngoài */
+  padding: 16px;                       /* khoảng cách trong */
+  display: flex;
+  flex-direction: column;              /* xếp dọc */
+  gap: 8px;                            /* khoảng cách giữa các nút */
+  border-radius: 12px;                  /* bo góc khung ngoài */
+  width: 200px;                        /* hoặc auto theo nội dung */
+  border: 1px solid var(--neutral-600);
+}
+
+/* style nút text đã có, thêm chỉnh cho vừa khung */
+.category-menu .btn.btn--text {
+  text-align: center;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: var(--neutral-100); /* màu chữ */
+  text-decoration: none;
+}
+

@@ -1,0 +1,24 @@
+.trending-posts {
+  background-color: #000;
+  border: 1px solid var(--neutral-800);
+  padding: 24px 32px;
+}
+
+.trending-posts__item {
+  display: flex;                /* để icon và link nằm cùng hàng */
+  align-items: center;          /* căn giữa icon & text */
+  gap: 8px;                     /* khoảng cách giữa icon & link */
+  border-bottom: 1px solid var(--neutral-800);
+  padding: 12px 0;
+}
+
+.trending-posts__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.trending-posts__icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
