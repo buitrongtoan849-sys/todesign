@@ -1,0 +1,49 @@
+/* --- Scoped override: chỉ ảnh hưởng .login-form khi nằm trong .login-inner --- */
+.login-inner .login-form {
+  /* nền và border như hình */
+  background-color: var(--neutral-900, #2d3036);
+  border: 1px solid var(--neutral-600, #4a4d55);
+
+  /* bo góc + sizing giống mockup */
+  border-radius: 10px;
+  padding: 36px 30px;
+  max-width: 360px;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* tạo độ nổi */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+
+  /* đảm bảo không bị che bởi header */
+  position: relative;
+  z-index: 2;
+}
+
+.title-login{
+    color: var(--neutral-50);
+}
+
+/* fallback cho trường hợp độ trong suốt do opacity */
+.login-inner .login-form[style*="opacity"],
+.login-inner .login-form[style*="transparent"] {
+  opacity: 1;
+  background-color: var(--neutral-900, #2d3036);
+}
+
+/* Nếu vẫn bị ghi đè bởi selector rất mạnh khác, dùng selector có specificity cao hơn */
+.container.login-inner > form.login-form {
+  /* copy các thuộc tính trên nếu cần */
+}
+
+/* Mobile: giữ padding hợp lý */
+@media (max-width: 600px) {
+  .login-inner .login-form {
+    padding: 24px 18px;
+    border-radius: 8px;
+  }
+}
+
+.hint-login{
+    font-size: var(--caption);
+    color: var(--error-500);
+}
