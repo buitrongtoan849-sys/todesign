@@ -17,6 +17,11 @@
   padding-bottom: 0;
 }
 
+.trending-posts__item:first-child {
+  padding-top: 0;
+}
+
+
 .trending-posts__icon {
   width: 16px;
   height: 16px;
