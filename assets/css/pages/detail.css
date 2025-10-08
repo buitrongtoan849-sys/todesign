@@ -45,7 +45,7 @@
 .detail-inner .dropdown__item {
   display: block;
   padding: 8px 16px;
-  color: var(--text-body);
+  color: var(--neutral-50);
   text-decoration: none;
 }
 
@@ -110,6 +110,10 @@
   border-radius: 8px;
 }
 
+.detail-inner .comment:last-child {
+  margin-bottom: 0;
+}
+
 .detail-inner .comment__reply {
   margin-top: 16px;
   padding: 16px;
@@ -158,6 +162,27 @@
 
 .dropdown.drop-full{
     width: 100%;
+}
+
+.hidden-success {
+  display: none; /* ẩn mặc định */
+  align-items: center;
+  gap: 8px;
+  background: #e6f9ed;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.detail-inner .comment {
+  margin-top: 0; /* comment đầu tiên không bị đẩy xuống */
+}
+
+.detail-inner .comment + .comment {
+  margin-top: 24px; /* các comment sau cách đều 24px */
 }
 
 @media (max-width: 768px) {

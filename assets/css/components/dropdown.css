@@ -14,7 +14,7 @@
   background: var(--neutral-800);
   border: 1px solid var(--neutral-600);
   border-radius: 8px;
-  color: var(--neutral-300);
+  color: var(--neutral-200);
   font-weight: 700;
   font-size: var(--text-base);
   display: flex;
