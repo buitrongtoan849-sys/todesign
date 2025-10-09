@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
       commentItem.insertAdjacentElement('afterend', activeClone);
       activeParent = commentItem;
 
-      // focus vào email đầu tiên (UX)
-      const emailEl = activeClone.querySelector('input[type="email"]');
-      if (emailEl) emailEl.focus();
+      // focus vào tên đầu tiên (UX)
+      const nameEl = activeClone.querySelector('input[type="text"]');
+      if (nameEl) nameEl.focus();
       return;
     }
   });
@@ -83,14 +83,14 @@ document.addEventListener('DOMContentLoaded', function () {
     formEl.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const emailInput = formEl.querySelector('input[type="email"]');
+      const nameInput = formEl.querySelector('input[type="text"]');
       const textarea = formEl.querySelector('textarea');
       const successMessage = formEl.querySelector('.message--success');
 
-      const email = emailInput ? emailInput.value.trim() : '';
+      const name = nameInput ? nameInput.value.trim() : '';
       const message = textarea ? textarea.value.trim() : '';
 
-      if (!email || !message) {
+      if (!name || !message) {
         alert('Vui lòng điền đầy đủ thông tin trước khi gửi!');
         return;
       }
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // tạo comment mới (reply)
-      const newComment = buildCommentNode(email, message, true);
+      const newComment = buildCommentNode(name, message, true);
 
       // chèn ngay sau comment cha (không chen vào template)
       parentComment.insertAdjacentElement('afterend', newComment);
@@ -117,14 +117,14 @@ document.addEventListener('DOMContentLoaded', function () {
   mainForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const emailInput = mainForm.querySelector('input[type="email"]');
+    const nameInput = mainForm.querySelector('input[type="text"]');
     const textarea = mainForm.querySelector('textarea');
     const successMessage = mainForm.querySelector('.message--success');
 
-    const email = emailInput ? emailInput.value.trim() : '';
+    const name = nameInput ? nameInput.value.trim() : '';
     const message = textarea ? textarea.value.trim() : '';
 
-    if (!email || !message) {
+    if (!name || !message) {
       alert('Vui lòng điền đầy đủ thông tin trước khi gửi!');
       return;
     }
@@ -135,14 +135,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // tạo comment mới (bình luận chính) -> append vào cuối .comment
-    const newComment = buildCommentNode(email, message, false);
+    const newComment = buildCommentNode(name, message, false);
     commentContainer.appendChild(newComment);
 
     mainForm.reset();
   });
 
   // --- Tạo DOM node cho comment mới ---
-  function buildCommentNode(email, message, isReply) {
+  function buildCommentNode(name, message, isReply) {
     const node = document.createElement('div');
     node.className = 'comment-item';
     if (isReply) {
@@ -155,17 +155,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Escape đơn giản để tránh XSS (client-side)
-    const safeEmail = escapeHtml(email);
+    const safeName = escapeHtml(name);
     const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
 
     node.innerHTML = `
       <div class="comment__header">
-        <div class="avatar" role="img" aria-label="Avatar ${safeEmail.charAt(0).toUpperCase()}">
-          <span class="avatar__initials">${safeEmail.charAt(0).toUpperCase()}</span>
+        <div class="avatar" role="img" aria-label="Avatar ${safeName.charAt(0).toUpperCase()}">
+          <span class="avatar__initials">${safeName.charAt(0).toUpperCase()}</span>
         </div>
         <div class="author-comment">
           <div class="author-time">
-            <span class="author">${safeEmail}</span>
+            <span class="author">${safeName}</span>
             <span class="dot"></span>
             <span>Vừa xong</span>
           </div>
@@ -191,11 +191,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (already) {
       count = Math.max(0, count - 1);
       el.dataset.liked = 'false';
-      el.classList.remove('liked');
+      el.classList.remove('active');
     } else {
       count = count + 1;
       el.dataset.liked = 'true';
-      el.classList.add('liked');
+      el.classList.add('active');
     }
     countSpan.textContent = count;
   }

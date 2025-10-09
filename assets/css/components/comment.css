@@ -26,9 +26,6 @@
   color: var(--neutral-100);
 }
 
-.author-time {
-  margin-bottom: 6px;
-}
 
 /* Actions */
 .comment__actions {
