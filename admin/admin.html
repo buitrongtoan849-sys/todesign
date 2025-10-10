@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Thống kê, User, Trang, Banner & Categories</title>
+  <link rel="stylesheet" href="./admin.css">
+  <!-- Quill.js CDN -->
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Todesign</h2>
+    <a href="#" class="active" id="nav-stats">Thống kê</a>
+    <a href="#" id="nav-users">Người dùng</a>
+    <a href="#" id="nav-pages">Trang</a>
+    <a href="#" id="nav-banners">Banner</a>
+    <a href="#" id="nav-categories">Danh mục</a>
+    <a href="#" id="nav-tags">Tags</a>
+    <a href="#" id="nav-contacts">Liên hệ</a>
+    <a href="#" id="nav-stories">Truyện</a>
+    <a href="#" id="nav-posts">Bài viết</a>
+    <a href="#" id="nav-chapters">Chương truyện</a>
+    <a href="#" id="nav-comments">Bình luận</a>
+    <a href="#" id="nav-password-resets">Reset mật khẩu</a>
+    <a href="#" id="nav-footer">Footer</a>
+    <a href="#" class="logout" id="nav-logout">Logout</a>
+  </div>
+
+  <div class="main">
+    <!-- ========== THỐNG KÊ ========== -->
+    <div id="stats-section">
+      <h1>Thống kê</h1>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>10,000</h3>
+          <p>Tổng người truy cập</p>
+        </div>
+        <div class="stat-card">
+          <h3>25</h3>
+          <p>Người đang online</p>
+        </div>
+        <div class="stat-card">
+          <h3>500</h3>
+          <p>Tổng bình luận</p>
+        </div>
+        <div class="stat-card">
+          <h3>3</h3>
+          <p>Liên hệ chưa xử lý</p>
+        </div>
+        <div class="stat-card">
+          <h3>150</h3>
+          <p>Tổng bài viết</p>
+        </div>
+        <div class="stat-card">
+          <h3>200</h3>
+          <p>Tổng truyện</p>
+        </div>
+      </div>
+
+      <h2>Bình luận chưa xử lý</h2>
+      <table id="pending-comments-table">
+        <thead>
+          <tr>
+            <th>ID</th><th>Content</th><th>User</th><th>Status</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Bài viết rất hay, cảm ơn admin!</td>
+            <td>user123</td>
+            <td>Pending</td>
+            <td>
+              <button class="btn-small" onclick="approveComment(1)">Duyệt</button>
+              <button class="btn-small" style="background: #ef4444; margin-left: 5px;" onclick="deleteComment(1)">Xóa</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Truyện này kết thúc thế nào? Mong phần tiếp theo.</td>
+            <td>reader456</td>
+            <td>Pending</td>
+            <td>
+              <button class="btn-small" onclick="approveComment(2)">Duyệt</button>
+              <button class="btn-small" style="background: #ef4444; margin-left: 5px;" onclick="deleteComment(2)">Xóa</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Có lỗi chính tả ở đoạn đầu, vui lòng sửa.</td>
+            <td>critic789</td>
+            <td>Pending</td>
+            <td>
+              <button class="btn-small" onclick="approveComment(3)">Duyệt</button>
+              <button class="btn-small" style="background: #ef4444; margin-left: 5px;" onclick="deleteComment(3)">Xóa</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ========== QUẢN LÝ NGƯỜI DÙNG ========== -->
+    <div id="user-section" style="display:none;">
+      <h1>Quản lý Người dùng</h1>
+      <button onclick="showUserForm()">+ Thêm người dùng</button>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>Tên</th><th>Email</th><th>Vai trò</th><th>Trạng thái</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="user-table"></tbody>
+      </table>
+
+      <div id="user-form" style="display:none;">
+        <h3 id="user-form-title">Thêm người dùng</h3>
+        <div class="form-group">
+          <label>Tên</label>
+          <input type="text" id="user-name">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="user-email">
+        </div>
+        <div class="form-group">
+          <label>Vai trò</label>
+          <select id="user-role">
+            <option value="admin">Admin</option>
+            <option value="author">Author</option>
+            <option value="user">User</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Trạng thái</label>
+          <select id="user-status">
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+            <option value="banned">Banned</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Avatar</label>
+          <input type="file" id="user-avatar" accept="image/*">
+          <div class="avatar-preview" id="avatar-preview">No Image</div>
+        </div>
+        <button id="save-user">Lưu người dùng</button>
+      </div>
+    </div>
+
+    <!-- ========== QUẢN LÝ TRANG ========== -->
+    <div id="page-section" style="display:none;">
+      <h1>Quản lý Trang</h1>
+      <button onclick="showPageForm()">+ Thêm trang</button>
+
+      <table id="page-table" style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>Tên hệ thống</th><th>Tiêu đề</th><th>Slug</th><th>Mô tả</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+      <div id="page-form" style="display:none;">
+        <h3 id="page-form-title">Thêm trang mới</h3>
+        <div class="form-group">
+          <label>Tên hệ thống</label>
+          <input type="text" id="page-system-name">
+        </div>
+        <div class="form-group">
+          <label>Tiêu đề</label>
+          <input type="text" id="page-title">
+        </div>
+        <div class="form-group">
+          <label>Slug (URL)</label>
+          <input type="text" id="page-slug">
+        </div>
+        <div class="form-group">
+          <label>Mô tả</label>
+          <textarea id="page-desc"></textarea>
+        </div>
+        <button id="save-page">Lưu thay đổi</button>
+      </div>
+    </div>
+
+    <!-- ========== QUẢN LÝ BANNER ========== -->
+    <div id="banner-section" style="display:none;">
+      <h1>Quản lý Banner</h1>
+
+      <div id="banner-form">
+        <input type="hidden" id="banner-id">
+        <div class="form-group">
+          <label>Tiêu đề</label>
+          <input type="text" id="banner-title" placeholder="Nhập tiêu đề banner">
+        </div>
+        <div class="form-group">
+          <label>Nội dung</label>
+          <textarea id="banner-desc" placeholder="Nhập nội dung mô tả"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Trang hiển thị</label>
+          <select id="banner-page">
+            <option value="1">Trang chủ</option>
+            <option value="2">Giới thiệu</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nền Banner</label>
+          <div class="flex-row">
+            <input type="file" id="banner-image" accept="image/*">
+            <span>hoặc</span>
+            <input type="color" id="banner-color" value="#3b82f6">
+          </div>
+          <small>Chọn 1 trong 2: ảnh hoặc màu nền</small>
+          <div class="banner-preview" id="banner-preview">
+            Xem trước Banner
+          </div>
+        </div>
+        <button id="save-banner">Lưu Banner</button>
+      </div>
+
+      <table style="margin-top:30px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>Trang</th><th>Tiêu đề</th><th>Nền</th><th>Nội dung</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="banner-table"></tbody>
+      </table>
+    </div>
+
+    <!-- ========== QUẢN LÝ DANH MỤC ========== -->
+    <div id="category-section" style="display:none;">
+      <h1>Quản lý Danh mục</h1>
+      <button onclick="showCategoryForm()">+ Thêm danh mục</button>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>Tên</th><th>Slug</th><th>Mô tả</th><th>Parent ID</th><th>Ngày tạo</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="category-table"></tbody>
+      </table>
+
+      <div id="category-form" style="display:none;">
+        <h3 id="category-form-title">Thêm danh mục</h3>
+        <input type="hidden" id="category-id">
+        <div class="form-group">
+          <label>Tên danh mục</label>
+          <input type="text" id="category-name">
+        </div>
+        <div class="form-group">
+          <label>Slug</label>
+          <input type="text" id="category-slug">
+        </div>
+        <div class="form-group">
+          <label>Mô tả</label>
+          <textarea id="category-description"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Danh mục cha</label>
+          <select id="category-parent">
+            <option value="">-- Không có --</option>
+          </select>
+        </div>
+        <button id="save-category">Lưu danh mục</button>
+      </div>
+    </div>
+
+    <!-- ========== QUẢN LÝ TAGS & POST-TAGS ========== -->
+    <div id="tags-section" style="display:none;">
+      <h1>Quản lý Tags</h1>
+      <button onclick="showTagForm()">+ Thêm tag</button>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>Tên</th><th>Slug</th><th>Ngày tạo</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="tag-table"></tbody>
+      </table>
+
+      <div id="tag-form" style="display:none;">
+        <h3 id="tag-form-title">Thêm tag</h3>
+        <input type="hidden" id="tag-id">
+        <div class="form-group">
+          <label>Tên tag</label>
+          <input type="text" id="tag-name">
+        </div>
+        <div class="form-group">
+          <label>Slug</label>
+          <input type="text" id="tag-slug">
+        </div>
+        <button id="save-tag">Lưu tag</button>
+      </div>
+
+      <h2 style="margin-top:40px;">Quản lý Post-Tags</h2>
+      <button onclick="showPostTagForm()">+ Thêm liên kết Post-Tag</button>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>Post ID</th><th>Tiêu đề Post</th><th>Tag ID</th><th>Tên Tag</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="post-tag-table"></tbody>
+      </table>
+
+      <div id="post-tag-form" style="display:none;">
+        <h3 id="post-tag-form-title">Thêm liên kết Post-Tag</h3>
+        <div class="form-group">
+          <label>Chọn Post</label>
+          <select id="post-tag-post"></select>
+        </div>
+        <div class="form-group">
+          <label>Chọn Tag</label>
+          <select id="post-tag-tag"></select>
+        </div>
+        <button id="save-post-tag">Lưu liên kết</button>
+      </div>
+    </div>
+
+    <!-- ========== QUẢN LÝ LIÊN HỆ ========== -->
+    <div id="contacts-section" style="display:none;">
+      <h1>Quản lý Liên hệ</h1>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>Tên</th><th>Email</th><th>Thông điệp</th><th>User ID</th><th>Ngày tạo</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="contacts-table"></tbody>
+      </table>
+
+      <div id="contact-details">
+        <h3>Chi tiết liên hệ</h3>
+        <button class="btn-small close-details" onclick="hideContactDetails()">Đóng</button>
+        <table>
+          <tr>
+            <th>ID</th>
+            <td id="detail-id"></td>
+          </tr>
+          <tr>
+            <th>Tên</th>
+            <td id="detail-name"></td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td id="detail-email"></td>
+          </tr>
+          <tr>
+            <th>Thông điệp</th>
+            <td id="detail-message"></td>
+          </tr>
+          <tr>
+            <th>User ID</th>
+            <td id="detail-user-id"></td>
+          </tr>
+          <tr>
+            <th>Ngày tạo</th>
+            <td id="detail-created-at"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- ========== QUẢN LÝ TRUYỆN ========== -->
+    <div id="stories-section" style="display:none;">
+      <h1>Quản lý Truyện</h1>
+      <button onclick="showStoryForm()">+ Thêm truyện</button>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>Tiêu đề</th><th>Slug</th><th>Mô tả</th><th>Author</th><th>Status</th><th>Cover</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="stories-table"></tbody>
+      </table>
+
+      <div id="story-form" style="display:none;">
+        <h3 id="story-form-title">Thêm truyện mới</h3>
+        <input type="hidden" id="story-id">
+        <div class="form-group">
+          <label>Tiêu đề</label>
+          <input type="text" id="story-title">
+        </div>
+        <div class="form-group">
+          <label>Slug</label>
+          <input type="text" id="story-slug">
+        </div>
+        <div class="form-group">
+          <label>Mô tả</label>
+          <textarea id="story-description"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Author</label>
+          <select id="story-author">
+            <option value="">-- Chọn author --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select id="story-status">
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+            <option value="archived">Archived</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Cover Image</label>
+          <input type="file" id="story-cover" accept="image/*">
+          <div class="cover-preview" id="cover-preview">No Image</div>
+        </div>
+        <button id="save-story">Lưu truyện</button>
+      </div>
+    </div>
+
+    <!-- ========== QUẢN LÝ BÀI VIẾT ========== -->
+    <div id="posts-section" style="display:none;">
+      <h1>Quản lý Bài viết</h1>
+      <button onclick="showPostForm()">+ Thêm bài viết</button>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>Tiêu đề</th><th>Slug</th><th>Category</th><th>Story ID</th><th>Author</th><th>Status</th><th>Thumbnail</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="posts-table"></tbody>
+      </table>
+
+      <div id="post-form" style="display:none;">
+        <h3 id="post-form-title">Thêm bài viết mới</h3>
+        <input type="hidden" id="post-id">
+        <div class="form-group">
+          <label>Tiêu đề</label>
+          <input type="text" id="post-title">
+        </div>
+        <div class="form-group">
+          <label>Slug</label>
+          <input type="text" id="post-slug">
+        </div>
+        <div class="form-group">
+          <label>Nội dung</label>
+          <div class="editor-container" id="post-editor-container">
+            <!-- Quill editor sẽ được init ở đây -->
+          </div>
+          <input type="hidden" id="post-content" name="post-content">
+        </div>
+        <div class="form-group">
+          <label>YouTube URL</label>
+          <input type="url" id="post-youtube" placeholder="https://youtube.com/watch?v=...">
+        </div>
+        <div class="form-group">
+          <label>Thumbnail</label>
+          <input type="file" id="post-thumbnail" accept="image/*">
+          <div class="thumbnail-preview" id="thumbnail-preview">No Image</div>
+        </div>
+        <div class="form-group">
+          <label>Author</label>
+          <select id="post-author">
+            <option value="">-- Chọn author --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="post-category">
+            <option value="">-- Chọn category --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Story ID (nếu thuộc truyện)</label>
+          <select id="post-story">
+            <option value="">-- Không thuộc truyện --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select id="post-status">
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+            <option value="archived">Archived</option>
+          </select>
+        </div>
+        <button id="save-post">Lưu bài viết</button>
+      </div>
+    </div>
+
+    <!-- ========== QUẢN LÝ CHƯƠNG TRUYỆN ========== -->
+    <div id="chapters-section" style="display:none;">
+      <h1>Quản lý Chương Truyện</h1>
+      <button onclick="showChapterForm()">+ Thêm chương</button>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>Story ID</th><th>Tiêu đề</th><th>Slug</th><th>Order Index</th><th>Nội dung Preview</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="chapters-table"></tbody>
+      </table>
+
+      <div id="chapter-form" style="display:none;">
+        <h3 id="chapter-form-title">Thêm chương mới</h3>
+        <input type="hidden" id="chapter-id">
+        <div class="form-group">
+          <label>Story ID</label>
+          <select id="chapter-story" required>
+            <option value="">-- Chọn truyện --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tiêu đề</label>
+          <input type="text" id="chapter-title">
+        </div>
+        <div class="form-group">
+          <label>Slug</label>
+          <input type="text" id="chapter-slug">
+        </div>
+        <div class="form-group">
+          <label>Nội dung</label>
+          <div class="editor-container" id="chapter-editor-container">
+            <!-- Quill editor sẽ được init ở đây -->
+          </div>
+          <input type="hidden" id="chapter-content" name="chapter-content">
+        </div>
+        <div class="form-group">
+          <label>Order Index</label>
+          <input type="number" id="chapter-order" min="1">
+        </div>
+        <button id="save-chapter">Lưu chương</button>
+      </div>
+    </div>
+
+    <!-- ========== QUẢN LÝ BÌNH LUẬN (FULL) ========== -->
+    <div id="comments-section" style="display:none;">
+      <h1>Quản lý Bình luận</h1>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>Post ID</th><th>Guest Name</th><th>Guest Email</th><th>Content</th><th>Parent ID</th><th>Status</th><th>Ngày tạo</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="comments-table"></tbody>
+      </table>
+    </div>
+
+    <!-- ========== QUẢN LÝ RESET MẬT KHẨU ========== -->
+    <div id="password-resets-section" style="display:none;">
+      <h1>Quản lý Reset Mật khẩu</h1>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr>
+            <th>ID</th><th>User ID</th><th>Token</th><th>OTP</th><th>Is Used</th><th>Expired At</th><th>Ngày tạo</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="password-resets-table"></tbody>
+      </table>
+    </div>
+
+    <!-- ========== QUẢN LÝ FOOTER ========== -->
+    <div id="footer-section" style="display:none;">
+      <h1>Quản lý Footer</h1>
+
+      <h2>Bản quyền</h2>
+      <div class="form-group">
+        <label>Text Bản quyền</label>
+        <textarea id="copyright-text"></textarea>
+      </div>
+      <button id="save-copyright">Lưu Bản quyền</button>
+      <p><strong>Hiện tại: </strong><span id="current-copyright">Loading...</span></p>
+
+      <h2>Danh sách Mạng Xã Hội</h2>
+      <div class="form-group">
+        <label id="social-icon-label">Chọn Icon SVG</label>
+        <input type="file" id="social-icon" accept=".svg">
+      </div>
+      <div class="form-group">
+        <label>URL</label>
+        <input type="text" id="social-url">
+      </div>
+      <div class="form-group">
+        <label>Thứ tự</label>
+        <input type="number" id="social-order">
+      </div>
+      <div class="form-group">
+        <label>Trạng thái</label>
+        <select id="social-status">
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+      <button id="add-social">Thêm Social</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Icon Path</th><th>URL</th><th>Thứ tự</th><th>Trạng thái</th><th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody id="social-table"></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="./admin.js"></script>
+</body>
+</html>
