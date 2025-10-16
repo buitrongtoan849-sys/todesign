@@ -1,0 +1,48 @@
+<h1>Quản lý Truyện</h1>
+<button onclick="showStoryForm()">+ Thêm truyện</button>
+
+<table style="margin-top:20px;">
+  <thead>
+    <tr>
+      <th>ID</th><th>Tiêu đề</th><th>Slug</th><th>Mô tả</th><th>Author</th><th>Status</th><th>Cover</th><th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody id="stories-table"></tbody>
+</table>
+
+<div id="story-form" style="display:none;">
+  <h3 id="story-form-title">Thêm truyện mới</h3>
+  <input type="hidden" id="story-id">
+  <div class="form-group">
+    <label>Tiêu đề</label>
+    <input type="text" id="story-title">
+  </div>
+  <div class="form-group">
+    <label>Slug</label>
+    <input type="text" id="story-slug">
+  </div>
+  <div class="form-group">
+    <label>Mô tả</label>
+    <textarea id="story-description"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Author</label>
+    <select id="story-author">
+      <option value="">-- Chọn author --</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Status</label>
+    <select id="story-status">
+      <option value="draft">Draft</option>
+      <option value="published">Published</option>
+      <option value="archived">Archived</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Cover Image</label>
+    <input type="file" id="story-cover" accept="image/*">
+    <div class="cover-preview" id="cover-preview">No Image</div>
+  </div>
+  <button id="save-story">Lưu truyện</button>
+</div>

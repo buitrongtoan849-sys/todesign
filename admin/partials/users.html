@@ -1,0 +1,45 @@
+<h1>Quản lý Người dùng</h1>
+<button onclick="showUserForm()">+ Thêm người dùng</button>
+
+<table style="margin-top:20px;">
+  <thead>
+    <tr>
+      <th>ID</th><th>Tên</th><th>Email</th><th>Vai trò</th><th>Trạng thái</th><th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody id="user-table"></tbody>
+</table>
+
+<div id="user-form" style="display:none;">
+  <h3 id="user-form-title">Thêm người dùng</h3>
+  <div class="form-group">
+    <label>Tên</label>
+    <input type="text" id="user-name">
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" id="user-email">
+  </div>
+  <div class="form-group">
+    <label>Vai trò</label>
+    <select id="user-role">
+      <option value="admin">Admin</option>
+      <option value="author">Author</option>
+      <option value="user">User</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Trạng thái</label>
+    <select id="user-status">
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+      <option value="banned">Banned</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Avatar</label>
+    <input type="file" id="user-avatar" accept="image/*">
+    <div class="avatar-preview" id="avatar-preview">No Image</div>
+  </div>
+  <button id="save-user">Lưu người dùng</button>
+</div>

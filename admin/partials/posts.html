@@ -1,0 +1,67 @@
+<h1>Quản lý Bài viết</h1>
+<button onclick="showPostForm()">+ Thêm bài viết</button>
+
+<table style="margin-top:20px;">
+  <thead>
+    <tr>
+      <th>ID</th><th>Tiêu đề</th><th>Slug</th><th>Category</th><th>Story ID</th><th>Author</th><th>Status</th><th>Thumbnail</th><th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody id="posts-table"></tbody>
+</table>
+
+<div id="post-form" style="display:none;">
+  <h3 id="post-form-title">Thêm bài viết mới</h3>
+  <input type="hidden" id="post-id">
+  <div class="form-group">
+    <label>Tiêu đề</label>
+    <input type="text" id="post-title">
+  </div>
+  <div class="form-group">
+    <label>Slug</label>
+    <input type="text" id="post-slug">
+  </div>
+  <div class="form-group">
+    <label>Nội dung</label>
+    <div class="editor-container" id="post-editor-container">
+      <!-- Quill editor sẽ được init ở đây -->
+    </div>
+    <input type="hidden" id="post-content" name="post-content">
+  </div>
+  <div class="form-group">
+    <label>YouTube URL</label>
+    <input type="url" id="post-youtube" placeholder="https://youtube.com/watch?v=...">
+  </div>
+  <div class="form-group">
+    <label>Thumbnail</label>
+    <input type="file" id="post-thumbnail" accept="image/*">
+    <div class="thumbnail-preview" id="thumbnail-preview">No Image</div>
+  </div>
+  <div class="form-group">
+    <label>Author</label>
+    <select id="post-author">
+      <option value="">-- Chọn author --</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Category</label>
+    <select id="post-category">
+      <option value="">-- Chọn category --</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Story ID (nếu thuộc truyện)</label>
+    <select id="post-story">
+      <option value="">-- Không thuộc truyện --</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Status</label>
+    <select id="post-status">
+      <option value="draft">Draft</option>
+      <option value="published">Published</option>
+      <option value="archived">Archived</option>
+    </select>
+  </div>
+  <button id="save-post">Lưu bài viết</button>
+</div>

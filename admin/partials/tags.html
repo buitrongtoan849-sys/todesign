@@ -1,0 +1,50 @@
+<h1>Quản lý Tags</h1>
+<button onclick="showTagForm()">+ Thêm tag</button>
+
+<table style="margin-top:20px;">
+  <thead>
+    <tr>
+      <th>ID</th><th>Tên</th><th>Slug</th><th>Ngày tạo</th><th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody id="tag-table"></tbody>
+</table>
+
+<div id="tag-form" style="display:none;">
+  <h3 id="tag-form-title">Thêm tag</h3>
+  <input type="hidden" id="tag-id">
+  <div class="form-group">
+    <label>Tên tag</label>
+    <input type="text" id="tag-name">
+  </div>
+  <div class="form-group">
+    <label>Slug</label>
+    <input type="text" id="tag-slug">
+  </div>
+  <button id="save-tag">Lưu tag</button>
+</div>
+
+<h2 style="margin-top:40px;">Quản lý Post-Tags</h2>
+<button onclick="showPostTagForm()">+ Thêm liên kết Post-Tag</button>
+
+<table style="margin-top:20px;">
+  <thead>
+    <tr>
+      <th>Post ID</th><th>Tiêu đề Post</th><th>Tag ID</th><th>Tên Tag</th><th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody id="post-tag-table"></tbody>
+</table>
+
+<div id="post-tag-form" style="display:none;">
+  <h3 id="post-tag-form-title">Thêm liên kết Post-Tag</h3>
+  <div class="form-group">
+    <label>Chọn Post</label>
+    <select id="post-tag-post"></select>
+  </div>
+  <div class="form-group">
+    <label>Chọn Tag</label>
+    <select id="post-tag-tag"></select>
+  </div>
+  <button id="save-post-tag">Lưu liên kết</button>
+</div>

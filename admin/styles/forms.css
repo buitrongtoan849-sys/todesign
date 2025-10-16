@@ -1,0 +1,28 @@
+.form-group { margin-bottom: 15px; }
+label { display: block; font-weight: 600; margin-bottom: 6px; }
+input[type="text"], input[type="email"], input[type="url"], input[type="file"], textarea, select {
+  width: 100%; padding: 8px; border: 1px solid #d1d5db;
+  border-radius: 6px; background: white;
+}
+input[type="file"] { padding: 4px; }
+input[type="number"] { padding: 8px; }
+textarea { resize: vertical; height: 80px; }
+button {
+  background: #3b82f6; color: white; padding: 10px 16px; border: none;
+  border-radius: 6px; cursor: pointer; transition: 0.2s;
+}
+button:hover { background: #2563eb; }
+.btn-small { padding: 6px 10px; font-size: 13px; }
+.btn-danger { background: #ef4444; }
+.btn-danger:hover { background: #dc2626; }
+.btn-warning { background: #f59e0b; }
+.btn-warning:hover { background: #d97706; }
+.btn-edit { background: #10b981; }
+.btn-edit:hover { background: #059669; }
+
+.flex-row { display: flex; align-items: center; gap: 10px; }
+input[type="color"] {
+  width: 60px; height: 36px; border: none; cursor: pointer;
+  border-radius: 6px; background: transparent;
+}
+small { color: #6b7280; font-size: 12px; }

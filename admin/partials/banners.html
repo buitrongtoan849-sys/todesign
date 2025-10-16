@@ -1,0 +1,42 @@
+<h1>Quản lý Banner</h1>
+
+<div id="banner-form">
+  <input type="hidden" id="banner-id">
+  <div class="form-group">
+    <label>Tiêu đề</label>
+    <input type="text" id="banner-title" placeholder="Nhập tiêu đề banner">
+  </div>
+  <div class="form-group">
+    <label>Nội dung</label>
+    <textarea id="banner-desc" placeholder="Nhập nội dung mô tả"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Trang hiển thị</label>
+    <select id="banner-page">
+      <option value="1">Trang chủ</option>
+      <option value="2">Giới thiệu</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Nền Banner</label>
+    <div class="flex-row">
+      <input type="file" id="banner-image" accept="image/*">
+      <span>hoặc</span>
+      <input type="color" id="banner-color" value="#3b82f6">
+    </div>
+    <small>Chọn 1 trong 2: ảnh hoặc màu nền</small>
+    <div class="banner-preview" id="banner-preview">
+      Xem trước Banner
+    </div>
+  </div>
+  <button id="save-banner">Lưu Banner</button>
+</div>
+
+<table style="margin-top:30px;">
+  <thead>
+    <tr>
+      <th>ID</th><th>Trang</th><th>Tiêu đề</th><th>Nền</th><th>Nội dung</th><th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody id="banner-table"></tbody>
+</table>

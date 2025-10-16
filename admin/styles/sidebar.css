@@ -1,0 +1,19 @@
+.sidebar {
+  width: 220px; background: #1f2937; color: white;
+  height: 100vh; display: flex; flex-direction: column;
+  padding-top: 20px; position: fixed;
+}
+.sidebar h2 { text-align: center; margin-bottom: 30px; font-size: 20px; color: white; }
+.sidebar a {
+  color: white; text-decoration: none; padding: 12px 20px;
+  display: block; border-left: 4px solid transparent; transition: 0.2s;
+}
+.sidebar a:hover, .sidebar a.active {
+  background: #374151; border-left: 4px solid #3b82f6;
+}
+.sidebar a.logout {
+  margin-top: auto;
+  border-top: 1px solid #374151;
+  padding-top: 20px;
+  margin-top: 20px;
+}

@@ -1,0 +1,42 @@
+<h1>Quản lý Chương Truyện</h1>
+<button onclick="showChapterForm()">+ Thêm chương</button>
+
+<table style="margin-top:20px;">
+  <thead>
+    <tr>
+      <th>ID</th><th>Story ID</th><th>Tiêu đề</th><th>Slug</th><th>Order Index</th><th>Nội dung Preview</th><th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody id="chapters-table"></tbody>
+</table>
+
+<div id="chapter-form" style="display:none;">
+  <h3 id="chapter-form-title">Thêm chương mới</h3>
+  <input type="hidden" id="chapter-id">
+  <div class="form-group">
+    <label>Story ID</label>
+    <select id="chapter-story" required>
+      <option value="">-- Chọn truyện --</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Tiêu đề</label>
+    <input type="text" id="chapter-title">
+  </div>
+  <div class="form-group">
+    <label>Slug</label>
+    <input type="text" id="chapter-slug">
+  </div>
+  <div class="form-group">
+    <label>Nội dung</label>
+    <div class="editor-container" id="chapter-editor-container">
+      <!-- Quill editor sẽ được init ở đây -->
+    </div>
+    <input type="hidden" id="chapter-content" name="chapter-content">
+  </div>
+  <div class="form-group">
+    <label>Order Index</label>
+    <input type="number" id="chapter-order" min="1">
+  </div>
+  <button id="save-chapter">Lưu chương</button>
+</div>

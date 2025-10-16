@@ -1,0 +1,35 @@
+<h1>Quản lý Danh mục</h1>
+<button onclick="showCategoryForm()">+ Thêm danh mục</button>
+
+<table style="margin-top:20px;">
+  <thead>
+    <tr>
+      <th>ID</th><th>Tên</th><th>Slug</th><th>Mô tả</th><th>Parent ID</th><th>Ngày tạo</th><th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody id="category-table"></tbody>
+</table>
+
+<div id="category-form" style="display:none;">
+  <h3 id="category-form-title">Thêm danh mục</h3>
+  <input type="hidden" id="category-id">
+  <div class="form-group">
+    <label>Tên danh mục</label>
+    <input type="text" id="category-name">
+  </div>
+  <div class="form-group">
+    <label>Slug</label>
+    <input type="text" id="category-slug">
+  </div>
+  <div class="form-group">
+    <label>Mô tả</label>
+    <textarea id="category-description"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Danh mục cha</label>
+    <select id="category-parent">
+      <option value="">-- Không có --</option>
+    </select>
+  </div>
+  <button id="save-category">Lưu danh mục</button>
+</div>

@@ -1,0 +1,33 @@
+<h1>Quản lý Trang</h1>
+<button onclick="showPageForm()">+ Thêm trang</button>
+
+<table id="page-table" style="margin-top:20px;">
+  <thead>
+    <tr>
+      <th>ID</th><th>Tên hệ thống</th><th>Tiêu đề</th><th>Slug</th><th>Mô tả</th><th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<div id="page-form" style="display:none;">
+  <h3 id="page-form-title">Thêm trang mới</h3>
+  <div class="form-group">
+    <label>Tên hệ thống</label>
+    <input type="text" id="page-system-name">
+  </div>
+  <div class="form-group">
+    <label>Tiêu đề</label>
+    <input type="text" id="page-title">
+  </div>
+  <div class="form-group">
+    <label>Slug (URL)</label>
+    <input type="text" id="page-slug">
+  </div>
+  <div class="form-group">
+    <label>Mô tả</label>
+    <textarea id="page-desc"></textarea>
+  </div>
+  <button id="save-page">Lưu thay đổi</button>
+</div>

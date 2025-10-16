@@ -1,0 +1,40 @@
+<h1>Quản lý Footer</h1>
+
+<h2>Bản quyền</h2>
+<div class="form-group">
+  <label>Text Bản quyền</label>
+  <textarea id="copyright-text"></textarea>
+</div>
+<button id="save-copyright">Lưu Bản quyền</button>
+<p><strong>Hiện tại: </strong><span id="current-copyright">Loading...</span></p>
+
+<h2>Danh sách Mạng Xã Hội</h2>
+<div class="form-group">
+  <label id="social-icon-label">Chọn Icon SVG</label>
+  <input type="file" id="social-icon" accept=".svg">
+</div>
+<div class="form-group">
+  <label>URL</label>
+  <input type="text" id="social-url">
+</div>
+<div class="form-group">
+  <label>Thứ tự</label>
+  <input type="number" id="social-order">
+</div>
+<div class="form-group">
+  <label>Trạng thái</label>
+  <select id="social-status">
+    <option value="active">Active</option>
+    <option value="inactive">Inactive</option>
+  </select>
+</div>
+<button id="add-social">Thêm Social</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th><th>Icon Path</th><th>URL</th><th>Thứ tự</th><th>Trạng thái</th><th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody id="social-table"></tbody>
+</table>

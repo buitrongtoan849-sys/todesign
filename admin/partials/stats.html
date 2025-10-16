@@ -1,0 +1,68 @@
+<h1>Thống kê</h1>
+<div class="stats-grid">
+  <div class="stat-card">
+    <h3>10,000</h3>
+    <p>Tổng người truy cập</p>
+  </div>
+  <div class="stat-card">
+    <h3>25</h3>
+    <p>Người đang online</p>
+  </div>
+  <div class="stat-card">
+    <h3>500</h3>
+    <p>Tổng bình luận</p>
+  </div>
+  <div class="stat-card">
+    <h3>3</h3>
+    <p>Liên hệ chưa xử lý</p>
+  </div>
+  <div class="stat-card">
+    <h3>150</h3>
+    <p>Tổng bài viết</p>
+  </div>
+  <div class="stat-card">
+    <h3>200</h3>
+    <p>Tổng truyện</p>
+  </div>
+</div>
+
+<h2>Bình luận chưa xử lý</h2>
+<table id="pending-comments-table">
+  <thead>
+    <tr>
+      <th>ID</th><th>Content</th><th>User</th><th>Status</th><th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Bài viết rất hay, cảm ơn admin!</td>
+      <td>user123</td>
+      <td>Pending</td>
+      <td>
+        <button class="btn-small" onclick="approveComment(1)">Duyệt</button>
+        <button class="btn-small" style="background: #ef4444; margin-left: 5px;" onclick="deleteComment(1)">Xóa</button>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Truyện này kết thúc thế nào? Mong phần tiếp theo.</td>
+      <td>reader456</td>
+      <td>Pending</td>
+      <td>
+        <button class="btn-small" onclick="approveComment(2)">Duyệt</button>
+        <button class="btn-small" style="background: #ef4444; margin-left: 5px;" onclick="deleteComment(2)">Xóa</button>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Có lỗi chính tả ở đoạn đầu, vui lòng sửa.</td>
+      <td>critic789</td>
+      <td>Pending</td>
+      <td>
+        <button class="btn-small" onclick="approveComment(3)">Duyệt</button>
+        <button class="btn-small" style="background: #ef4444; margin-left: 5px;" onclick="deleteComment(3)">Xóa</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

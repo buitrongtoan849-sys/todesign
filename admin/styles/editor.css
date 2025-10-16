@@ -1,0 +1,8 @@
+.editor-container { border: 1px solid #d1d5db; border-radius: 6px; padding: 10px; min-height: 300px; }
+.editor-content { min-height: 280px; outline: none; }
+.editor-content img { max-width: 100%; height: auto; margin: 10px 0; display: block; }
+.image-alt { margin-top: 5px; font-size: 12px; color: #6b7280; }
+
+/* Quill specific styles */
+.ql-container { font-size: 14px; }
+.ql-editor img { max-width: 100%; height: auto; display: block; margin: 10px 0; }
