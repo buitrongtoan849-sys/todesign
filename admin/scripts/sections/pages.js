@@ -31,7 +31,10 @@ function renderPageTable() {
       <td>${p.title}</td>
       <td>${p.slug}</td>
       <td>${p.desc}</td>
-      <td><button class="btn-small" onclick="editPage(${p.id})">Sửa</button></td>
+      <td>
+        <button class="btn-small" onclick="editPage(${p.id})">Sửa</button>
+        <button class="btn-small btn-danger" onclick="deletePage(${p.id})">Xóa</button>
+      </td>
     `;
     pageTableBody.appendChild(row);
   });
@@ -87,6 +90,14 @@ function savePage() {
   }
   renderPageTable();
   document.getElementById('page-form').style.display = 'none';
+}
+
+function deletePage(id) {
+  if (confirm('Bạn có chắc chắn muốn xóa trang này không?')) {
+    pages = pages.filter(p => p.id !== id);
+    alert('Xóa trang thành công!');
+    renderPageTable();
+  }
 }
 
 window.initPages = initPages;
